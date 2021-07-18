@@ -16,14 +16,14 @@ pipeline {
         }
        stage('Building our image') {
             steps {
-               sh  "sudo docker build -t flask-rest ."
+               sh  "docker build -t anu/flask-rest ."
                   }
             }
        stage('Deploy our image') {
             steps {
                 script {
                     docker.withRegistry(registry, registryCredential) {
-                    sh "sudo docker push dockeruseranu123/imgflaskrest:v1.0.0 ."
+                    sh "docker push dockeruseranu123/imgflaskrest:v1.0.0 ."
                     }
                 }
             }
