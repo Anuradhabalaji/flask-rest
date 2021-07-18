@@ -17,11 +17,7 @@ pipeline {
        stage('Building our image') {
             steps {
                sh  "docker build -t flask-rest ."
-               sh "docker run -p 8000:8000 flask-rest"
-               sh "docker login --username dockeruseranu123 --password Raghav!23"
-                sh "docker push dockeruseranu123/imgflaskrest:v1.0.0 ."
-
-                }
+                  }
             }
        stage('Deploy our image') {
             steps {
