@@ -1,5 +1,9 @@
 #!groovy
 pipeline {
+ environment {
+        registry = "dockeruseranu123/flaskrestrepo"
+        registryCredential = 'DockerRegistrycr'
+    }
 
     agent any
     stages {
@@ -19,7 +23,30 @@ pipeline {
 
                 }
             }
+            stage('Deploy our image') {
+            steps {
+                script {
+                    docker.withRegistry(registry, registryCredential) {
+                    sh "docker push dockeruseranu123/imgflaskrest:v1.0.0 ."
+                    }
+                }
+            }
+
         }
+        post {
+        success {
+            mail to: 'radh27@gmail.com',
+            subject: "${BUILD_TAG} : ${currentBuild.currentResult}",
+            body: "Success"
+            cleanWs()
+        }
+        failure {
+            mail to: 'radh27@gmail.com',
+            subject: "${BUILD_TAG} : ${currentBuild.currentResult}",
+            body: "Failure"
+            cleanWs()
+        }
+    }
 
 
  }
