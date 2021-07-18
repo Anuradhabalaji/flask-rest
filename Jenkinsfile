@@ -23,7 +23,7 @@ pipeline {
 
                 }
             }
-            stage('Deploy our image') {
+       stage('Deploy our image') {
             steps {
                 script {
                     docker.withRegistry(registry, registryCredential) {
@@ -31,8 +31,9 @@ pipeline {
                     }
                 }
             }
+		}
+}
 
-        }
         post {
         success {
             mail to: 'radh27@gmail.com',
@@ -49,4 +50,4 @@ pipeline {
     }
 
 
- }
+}
