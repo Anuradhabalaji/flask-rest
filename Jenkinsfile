@@ -16,7 +16,7 @@ pipeline {
         }
        stage('Building our image') {
             steps {
-               sh  "docker build -t anu/flask-rest ."
+               sh  "docker build -t dockeruseranu123/flask-rest ."
                   }
             }
        stage('Deploy our image') {
