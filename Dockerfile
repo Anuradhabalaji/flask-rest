@@ -9,7 +9,8 @@ COPY requirements.txt requirements.txt
 COPY . .
 
 # Install app dependencies - rerun when you edit requirements.txt
-RUN pip install -r requirements.txt
+#RUN pip install -r requirements.txt
+RUN pip install flask
 
 # Expose port 8000 for container accessibility. You still have to add -p 8000:8000 to the docker run command
 EXPOSE 8000
