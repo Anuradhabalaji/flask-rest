@@ -5,6 +5,7 @@ pipeline{
     environment{
         dockerImage = ''
         registry = 'dockeruseranu123/pythonapp'
+        registryCredential = 'DockerRegistrycr'
     }
     stages{
         stage('GIT Clone'){
@@ -18,6 +19,15 @@ pipeline{
                     dockerImage = docker.build registry
                 }
             }
+         stage('uploading image'){
+            steps{
+                script{
+                      docker.withRegistry( '', registryCredential ) {
+                      dockerImage.push()
+                      }
+                }
+            }
+         }
         }
 
     }
