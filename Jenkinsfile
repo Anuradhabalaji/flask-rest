@@ -32,7 +32,7 @@ pipeline{
         stage('k8s Deploy'){
             steps{
                 kubernetesDeploy(
-                    configs: 'flask-rest/Deployment.yaml',
+                    configs: 'Deployment.yaml',
                     kubeconfigId: 'k8s',
                     enableConfigSubstitution: true
                     )
