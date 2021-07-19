@@ -19,6 +19,7 @@ pipeline{
                     dockerImage = docker.build registry
                 }
             }
+		}
          stage('uploading image'){
             steps{
                 script{
@@ -27,7 +28,7 @@ pipeline{
                       }
                 }
             }
-         }
+
         }
 
     }
