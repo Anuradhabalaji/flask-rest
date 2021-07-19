@@ -1,17 +1,13 @@
-# In the first part of our Dockerfile, we define the base Docker Image we want to use for the container.
-FROM alpine:3.1
+FROM python3.7
 
-# We add Python to our Docker Image
-RUN apk add --update python py-pip
+# Setting working directory. All the path will be relative to WORKDIR
+WORKDIR /root/Project1/flask-rest
 
-# move data to the image. Left is location on your machine, right is location in the container
-COPY requirements.txt requirements.txt
+# Copying source files
 COPY . .
 
-# Install app dependencies - rerun when you edit requirements.txt
-#RUN pip install -r requirements.txt
-RUN pip install setuptools -U
-RUN pip install flask
+# Install dependencies
+RUN pip install -r requirements.txt
 
 # Expose port 8000 for container accessibility. You still have to add -p 8000:8000 to the docker run command
 EXPOSE 8000
