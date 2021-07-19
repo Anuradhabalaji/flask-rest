@@ -20,17 +20,17 @@ spec:
         ports:
         - containerPort: 8100
 
-
-# Servcie type loadbalancer
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-service
-spec:
-  selector:
-    app: flaskrest
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8100
-  type: LoadBalancer
+#
+## Servcie type loadbalancer
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: my-service
+#spec:
+#  selector:
+#    app: flaskrest
+#  ports:
+#    - protocol: TCP
+#      port: 80
+#      targetPort: 8100
+#  type: LoadBalancer
