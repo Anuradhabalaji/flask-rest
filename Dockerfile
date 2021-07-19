@@ -1,4 +1,10 @@
-FROM python3.7
+# In the first part of our Dockerfile, we define the base Docker Image we want to use for the container.
+FROM alpine:3.1
+
+# We add Python to our Docker Image
+RUN apk add --update python py-pip
+RUN python -m pip install –upgrade pip
+RUN pip install setup-py-upgrade
 
 # Setting working directory. All the path will be relative to WORKDIR
 WORKDIR /root/Project1/flask-rest
