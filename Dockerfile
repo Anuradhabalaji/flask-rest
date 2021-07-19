@@ -1,8 +1,8 @@
 # In the first part of our Dockerfile, we define the base Docker Image we want to use for the container.
-FROM alpine:3.1
+FROM python:3-alpine
 
 # We add Python to our Docker Image
-RUN apk add --update python3 py3-pip
+#RUN apk add --update python3 py3-pip
 
 # move data to the image. Left is location on your machine, right is location in the container
 COPY requirements.txt requirements.txt
