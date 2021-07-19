@@ -2,7 +2,7 @@
 FROM alpine:3.1
 
 # We add Python to our Docker Image
-RUN apk add python3
+RUN apk add --update python3 py3-pip
 
 # move data to the image. Left is location on your machine, right is location in the container
 COPY requirements.txt requirements.txt
