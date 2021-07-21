@@ -29,15 +29,12 @@ pipeline{
             }
 
         }
-        stage('k8s Deploy'){
+        /* stage('k8s Deploy'){
             steps{
-                kubernetesDeploy(
-                    configs: 'Deployment.yaml',
-                    kubeconfigId: 'k8s',
-                    enableConfigSubstitution: true
-                    )
+                configs: '', kubeConfig: [path: ''], kubeconfigId: 'k8s', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+
                  }
-        }
+        } */
 
    }
 }
