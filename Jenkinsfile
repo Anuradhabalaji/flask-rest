@@ -29,6 +29,7 @@ pipeline{
             }
 
         }
+
         /* stage('k8s Deploy'){
             steps{
                 configs: '', kubeConfig: [path: ''], kubeconfigId: 'k8s', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
