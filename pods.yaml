@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flaskrest
+  labels:
+    app: flaskrest
+spec:
+  containers:
+    - name: flaskrest
+      image: dockeruseranu123/pythonapp:latest
+      ports:
+        - containerPort: 8080
