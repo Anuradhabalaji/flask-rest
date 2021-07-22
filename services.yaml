@@ -1,12 +1,11 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: flaskrest
+  name: jenkins
 spec:
-  selector:
-    app: flaskrest
+  type: NodePort
   ports:
-  - protocol: TCP
-    port: 80
+  - port: 8080
     targetPort: 8080
-  type: LoadBalancer
+  selector:
+    app: jenkins
