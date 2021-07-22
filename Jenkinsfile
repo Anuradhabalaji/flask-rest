@@ -33,13 +33,13 @@ pipeline{
             steps{
             script{
                  sshagent(['ec2-user']) {
-                    sh "scp -o StrictHostKeyChecking=no services.yaml pods.yaml root@ip-172-31-80-118:/home/root/"
+                    sh "scp -o StrictHostKeyChecking=no services.yaml pods.yaml ec2-user@ip-172-31-80-118:/home/ec2-user/"
                     script{
                         try{
-                            sh "ssh root@ip-172-31-80-118 kubectl apply -f ."
+                            sh "ssh ec2-user@ip-172-31-80-118 kubectl apply -f ."
                         }
                         catch(error){
-                            sh "ssh root@ip-172-31-80-118 kubectl create -f ."
+                            sh "ssh ec2-user@ip-172-31-80-118 kubectl create -f ."
                         }
                     }
                    }
